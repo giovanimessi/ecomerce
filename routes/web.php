@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::match(['get', 'post'],'/',[ProdutosController::class, 'index'])->name('home');
+Route::match(['get', 'post'],'/categoria',[ProdutosController::class, 'categoria'])->name('categoria');
+Route::match(['get', 'post'],'/Cadastrar',[ClientController::class, 'cadastrar'])->name('cadastrar');
+
+
