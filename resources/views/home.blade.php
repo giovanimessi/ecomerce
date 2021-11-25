@@ -29,9 +29,9 @@
         <a href="#" class="navbar-brand">Loja</a>
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-                <a class="nav-link" href="#">Home</a>
-                <a class="nav-link" href="#">Categoria</a>
-                <a class="nav-link" href="#">Registro</a>
+                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                <a class="nav-link" href="{{ route('categoria') }}">Categoria</a>
+                <a class="nav-link" href="{{ route('cadastrar') }}">Registro</a>
 
             </div>
 
@@ -41,43 +41,25 @@
     </nav>
 
     <div class="container">
+        @if (isset($data))
+            @foreach ($data as $produ)
+                <div class="row">
 
-        <div class="row">
+                    <div class=" col-3 mb-3">
+                        <div class="card">
+                            <img src="{{ asset($produ->foto) }}" class="card-img-top">
+                            <div class="card-title">{{$produ->nome}} = R$ {{$produ->valor}}</div>
+                            <a href="#" class="btn btn-info">Item</a></a>
+                                  
+                        </div>
 
-            <div class=" col-3 mb-3">
-                <div class="card">
-                    <img src="{{asset('imagem/download.png')}}" class="card-img-top">
-                    <div class="card-title">Produto</div>
-                    <a href="#" class="btn btn-info">Item</a></a>
+                    </div>
+
+
 
                 </div>
-               
-            </div>
-            <div class=" col-3 mb-3">
-                <div class="card">
-                    <img src="{{asset('imagem/download.png')}}" class="card-img-top">
-                    <div class="card-title">Produto</div>
-                    <a href="#" class="btn btn-info">Adicionar item</a>
-                </div>
-               
-            </div>
-            <div class=" col-3 mb-3">
-                <div class="card">
-                    <img src="{{asset('imagem/download.png')}}" class="card-img-top">
-                    <div class="card-title">Produto</div>
-                    <a href="#" class="btn btn-info">Adicionar Item</a>
-                </div>
-               
-            </div>
-            <div class=" col-3 mb-3">
-                <div class="card">
-                    <img src="{{asset('imagem/download.png')}}" class="card-img-top">
-                    <div class="card-title">Produto</div>
-                    <a href="#" class="btn btn-info">Adicionar  Item</a>
-                </div>
-               
-            </div>
-        </div>
+                @endforeach
+        @endif
 
     </div>
 

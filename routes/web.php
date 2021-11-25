@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ClientController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::match(['get', 'post'],'/',[ProdutosController::class, 'index'])->name('home');
 Route::match(['get', 'post'],'/categoria',[ProdutosController::class, 'categoria'])->name('categoria');
-Route::match(['get', 'post'],'/Cadastrar',[ClientController::class, 'cadastrar'])->name('cadastrar');
+
+
+//client
+Route::match(['get', 'post'],'/cadastrar',[ClientController::class, 'cadastrar'])->name('cadastrar');
 
 

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Rmodel
 {
     use HasFactory;
+    protected $table = "usuarios";
+
+    protected $fillable = 'usuarios';
 }
